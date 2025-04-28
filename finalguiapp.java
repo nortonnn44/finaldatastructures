@@ -1,0 +1,113 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedList;
+
+public class FinalGuiApp {
+    public static void main(String[] args) {
+        // Create the frame
+        JFrame frame = new JFrame("Chord App");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(400, 200);
+        
+        // Create a panel to hold components
+        JPanel panel = new JPanel();
+        
+        // Create a text field
+        JTextField textField = new JTextField(20);
+         JLabel label = new JLabel("");
+        // Create a button
+        JButton button = new JButton("Get Chord");
+        
+        // Add an action listener to the button
+        button.addActionListener(new ActionListener() {
+            @SuppressWarnings("unlikely-arg-type")
+			@Override
+            public void actionPerformed(ActionEvent e) {
+                // Display a message dialog with the text from the text field
+            	LinkedList<String> chordIndex = new LinkedList<String>(); //creates a linkedlist for the chord
+                HashMap<String, String> chordName = new HashMap<String, String>(); //creates a hashmap
+//gets textfield and then button gets chord based on text
+            	String chord = textField.getText();
+            	if (chord.equalsIgnoreCase("major")) {
+            	//adds chord note index
+            	chordIndex.add("1");
+            	chordIndex.add("3");
+            	chordIndex.add("5");
+            	chordName.put("major", chordIndex.toString()); // puts chord index and name in hashmap
+            	
+            	label.setText(chordName.toString()); //adds hashmap to gui
+            	
+                
+            	}
+            	if (chord.equalsIgnoreCase("minor")) {
+                	chordIndex.add("1");
+                	chordIndex.add("b3");
+                	chordIndex.add("5");
+                	chordName.put("minor", chordIndex.toString());
+                	label.setText(chordName.toString());
+                	
+                    
+                	}
+
+            
+            
+         	if (chord.equalsIgnoreCase("minor7")) {
+            	chordIndex.add("1");
+            	chordIndex.add("b3");
+            	chordIndex.add("5");
+            	chordIndex.add("b7");
+            	chordName.put("minor7", chordIndex.toString());
+            	label.setText(chordName.toString());
+            	
+                
+            	}
+        
+            
+         	if (chord.equalsIgnoreCase("augmented")) {
+            	chordIndex.add("1");
+            	chordIndex.add("3");
+            	chordIndex.add("#5");
+            	
+            	chordName.put("augmented", chordIndex.toString());
+            	label.setText(chordName.toString());
+            	
+                
+            	}
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            }
+            
+            
+            
+            
+            
+            
+        });
+        
+        // Add components to the panel
+        panel.add(textField);
+        panel.add(button);
+        panel.add(label);
+        // Add the panel to the frame
+        frame.add(panel);
+        
+        // Set the frame visibility to true
+        frame.setVisible(true);
+    
+    }
+}
+
+
+    
